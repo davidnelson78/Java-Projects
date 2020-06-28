@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Nov 29 16:01:18 CST 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-0160-09cc-5ffa-0000070905c0 
+on database directory C:\opt\db-derby-10.14.1.0\relativity with class loader sun.misc.Launcher$AppClassLoader@2503dbd3 
+Loaded from file:/C:/Apache/db-derby-10.14.1.0-bin/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_112-b15
+user.dir=C:\Users\david\Documents\NetBeansProjects\nelson_Relativity
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Solitiare">
+  <ClassDiagramComponents>
+    <Class name="Card" package="solitiare" visibility="public" xPosition="452.0" yPosition="20.0">
+      <Fields>
+        <Field name="_suit" type="Suit" visibility="private"/>
+        <Field name="_value" type="Value" visibility="private"/>
+        <Field name="_faceup" type="Boolean" visibility="private"/>
+        <Field name="_location" type="Point" visibility="private"/>
+        <Field name="whereAmI" type="Point" visibility="private"/>
+        <Field name="x" type="int" visibility="private"/>
+        <Field name="y" type="int" visibility="private"/>
+        <Field name="x_offset" type="int" visibility="private" isFinal="true"/>
+        <Field name="y_offset" type="int" visibility="private" isFinal="true"/>
+        <Field name="new_x_offset" type="int" visibility="private" isFinal="true"/>
+        <Field name="CARD_HEIGHT" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="CARD_WIDTH" type="int" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="Suit" name="suit"/>
+          <Argument type="Value" name="value"/>
+        </Constructor>
+        <Constructor visibility="package"/>
+      </Constructors>
+      <Methods>
+        <Method name="getSuit" returnType="Suit" visibility="public"/>
+        <Method name="getValue" returnType="Value" visibility="public"/>
+        <Method name="setWhereAmI" returnType="void" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+        <Method name="getWhereAmI" returnType="Point" visibility="public"/>
+        <Method name="getXY" returnType="Point" visibility="public"/>
+        <Method name="getFaceStatus" returnType="Boolean" visibility="public"/>
+        <Method name="setXY" returnType="void" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+        <Method name="setSuit" returnType="void" visibility="public">
+          <Argument type="Suit" name="suit"/>
+        </Method>
+        <Method name="setValue" returnType="void" visibility="public">
+          <Argument type="Value" name="value"/>
+        </Method>
+        <Method name="setFaceup" returnType="Card" visibility="public"/>
+        <Method name="setFacedown" returnType="Card" visibility="public"/>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CardStack" package="solitiare" visibility="public" xPosition="39.0" yPosition="270.0">
+      <Fields>
+        <Field name="NUM_CARDS" type="int" visibility="protected" isFinal="true"/>
+        <Field name="playStack" type="boolean" visibility="protected"/>
+        <Field name="SPREAD" type="int" visibility="protected"/>
+        <Field name="_x" type="int" visibility="protected"/>
+        <Field name="_y" type="int" visibility="protected"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="boolean" name="isDeck"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="empty" returnType="boolean" visibility="public"/>
+        <Method name="putFirst" returnType="void" visibility="public">
+          <Argument type="Card" name="c"/>
+        </Method>
+        <Method name="getFirst" returnType="Card" visibility="public"/>
+        <Method name="getLast" returnType="Card" visibility="public"/>
+        <Method name="popFirst" returnType="Card" visibility="public"/>
+        <Method name="push" returnType="void" visibility="public">
+          <Argument type="Card" name="c"/>
+        </Method>
+        <Method name="pop" returnType="Card" visibility="public"/>
+        <Method name="shuffle" returnType="void" visibility="public"/>
+        <Method name="showSize" returnType="int" visibility="public"/>
+        <Method name="reverse" returnType="CardStack" visibility="public"/>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+        <Method name="getXY" returnType="Point" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FinalStack" package="solitiare" visibility="public" xPosition="39.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="contains" returnType="boolean" visibility="public">
+          <Argument type="Point" name="p"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Solitaire" package="solitiare" visibility="public" xPosition="898.0" yPosition="20.0">
+      <Fields>
+        <Field name="TABLE_HEIGHT" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="TABLE_WIDTH" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="NUM_FINAL_DECKS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="NUM_PLAY_DECKS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="DECK_POS" type="Point" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SHOW_POS" type="Point" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="FINAL_POS" type="Point" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="PLAY_POS" type="Point" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="final_cards" type="FinalStack[]" visibility="private" isStatic="true"/>
+        <Field name="playCardStack" type="CardStack[]" visibility="private" isStatic="true"/>
+        <Field name="newCardPlace" type="Card" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="deck" type="CardStack" visibility="private" isStatic="true"/>
+        <Field name="newCardButton" type="Card" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="timer" type="Timer" visibility="private" isStatic="true"/>
+        <Field name="scoreClock" type="ScoreClock" visibility="private" isStatic="true"/>
+        <Field name="timeRunning" type="boolean" visibility="private" isStatic="true"/>
+        <Field name="score" type="int" visibility="private" isStatic="true"/>
+        <Field name="time" type="int" visibility="private" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="moveCard" returnType="Card" visibility="protected" isStatic="true">
+          <Argument type="Card" name="c"/>
+          <Argument type="int" name="x"/>
+          <Argument type="int" name="y"/>
+        </Method>
+        <Method name="setScore" returnType="void" visibility="protected" isStatic="true">
+          <Argument type="int" name="deltaScore"/>
+        </Method>
+        <Method name="updateTimer" returnType="void" visibility="protected" isStatic="true"/>
+        <Method name="startTimer" returnType="void" visibility="protected" isStatic="true"/>
+        <Method name="toggleTimer" returnType="void" visibility="protected" isStatic="true"/>
+        <Method name="playNewGame" returnType="void" visibility="private" isStatic="true"/>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="newCardButton" source="solitiare.Solitaire" target="solitiare.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="solitiare.CardStack" target="solitiare.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="newCardPlace" source="solitiare.Solitaire" target="solitiare.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="solitiare.FinalStack" target="solitiare.CardStack"/>
+    <HasRelation name="v" source="solitiare.CardStack" target="solitiare.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
